@@ -1,0 +1,204 @@
+**COMP9020: Set Theory and Logic - Lecture Summary and Notes**
+
+---
+
+## 1. **Introduction and Review**
+
+* The lecture began with a note on how today's topic builds on predicate logic, models, and propositional connectives.
+* Set theory introduces new **notation** and **terminology**, but the **core logical ideas remain the same**.
+
+---
+
+## 2. **Set Notation and Definitions**
+
+### 2.1 Set Builder Notation
+
+* $\{x \in S \mid P(x)\}$: Set of all elements $x$ in set $S$ such that property $P$ holds.
+* Alternative syntax includes semicolons and vertical bars. Semicolons preferred by lecturer due to overuse of vertical bar.
+
+### 2.2 Subsets and Set Identity
+
+* **Subset**: $A \subseteq B \iff \forall x (x \in A \Rightarrow x \in B)$
+* **Not a Subset**: $A \nsubseteq B \iff \exists x (x \in A \land x \notin B)$
+* **Proper Subset**: $A \subset B \iff A \subseteq B \land \exists x (x \in B \land x \notin A)$
+* **Set Equality**: $A = B \iff A \subseteq B \land B \subseteq A$
+* **Important**: $A \subset B \land B \subset A$ is a contradiction.
+
+---
+
+## 3. **Examples with Integer Sets**
+
+### 3.1
+
+Let:
+
+* $A = \{m \in \mathbb{Z} \mid m = 2a \text{ for some } a \in \mathbb{Z}\}$
+* $B = \{n \in \mathbb{Z} \mid n = 2b - 2 \text{ for some } b \in \mathbb{Z}\}$
+
+**Proof of Equality**: Show mutual inclusion by algebraic manipulation:
+
+* $b = a + 1 \Rightarrow 2b - 2 = 2a \Rightarrow A \subseteq B$
+* $a = b - 1 \Rightarrow 2a = 2b - 2 \Rightarrow B \subseteq A$
+* $\therefore A = B$
+
+---
+
+## 4. **Operations on Sets**
+
+### 4.1 Basic Operations
+
+* **Union**: $A \cup B = \{x \in U \mid x \in A \lor x \in B\}$
+* **Intersection**: $A \cap B = \{x \in U \mid x \in A \land x \in B\}$
+* **Difference**: $B - A = \{x \in B \mid x \notin A\}$
+* **Complement**: $\overline{A} = \{x \in U \mid x \notin A\}$
+
+### 4.2 Indexed Families
+
+* **Union**: $\bigcup_{i=1}^n A_i = \{x \in U \mid \exists i (x \in A_i)\}$
+* **Intersection**: $\bigcap_{i=1}^n A_i = \{x \in U \mid \forall i (x \in A_i)\}$
+
+---
+
+## 5. **The Empty Set**
+
+* **Notation**: $\emptyset$ or $\{\}$
+* **Important**: $\{\emptyset\} \neq \emptyset$
+* One and only one empty set, since a set is defined entirely by its elements.
+
+---
+
+## 6. **Avoiding Russell's Paradox**
+
+* **Naive Set Theory** leads to paradoxes under **unrestricted comprehension**.
+* **Russell's Paradox**: $R = \{x \mid x \notin x\}$ → contradiction.
+* Modern set theory uses **iterative conception** to avoid such paradoxes.
+
+---
+
+## 7. **Partitions and Disjoint Sets**
+
+* **Disjoint Sets**: $A \cap B = \emptyset$
+* **Pairwise Disjoint**: $A_i \cap A_j = \emptyset$ for all $i \neq j$
+* **Partition**: A set of non-empty, pairwise disjoint subsets whose union is the original set.
+
+---
+
+## 8. **Power Set**
+
+* **Definition**: $\mathcal{P}(A) = \{X \mid X \subseteq A\}$
+* **Size**: If $|A| = n$, then $|\mathcal{P}(A)| = 2^n$
+
+---
+
+## 9. **Algebra of Sets**
+
+### 9.1 Key Properties
+
+* **Commutativity**:
+
+  * $A \cup B = B \cup A$
+  * $A \cap B = B \cap A$
+
+* **Associativity**:
+
+  * $(A \cup B) \cup C = A \cup (B \cup C)$
+  * $(A \cap B) \cap C = A \cap (B \cap C)$
+
+* **Distributivity**:
+
+  * $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+  * $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+
+* **Identity Laws**:
+
+  * $A \cup \emptyset = A$
+  * $A \cap U = A$
+
+* **Domination Laws**:
+
+  * $A \cup U = U$
+  * $A \cap \emptyset = \emptyset$
+
+* **Complement Laws**:
+
+  * $A \cup \overline{A} = U$
+  * $A \cap \overline{A} = \emptyset$
+
+* **Double Complement**:
+
+  * $\overline{\overline{A}} = A$
+
+* **Idempotent Laws**:
+
+  * $A \cup A = A$
+  * $A \cap A = A$
+
+* **Absorption Laws**:
+
+  * $A \cup (A \cap B) = A$
+  * $A \cap (A \cup B) = A$
+
+* **De Morgan's Laws**:
+
+  * $\overline{A \cup B} = \overline{A} \cap \overline{B}$
+  * $\overline{A \cap B} = \overline{A} \cup \overline{B}$
+
+* **Set Difference**:
+
+  * $A - B = A \cap \overline{B}$
+
+---
+
+## 10. **Partial Orders and Logic Analogy**
+
+* $\subseteq$ behaves like logical consequence ($\Rightarrow$)
+* $A \subseteq B \land B \subseteq A \Rightarrow A = B$
+* $\subseteq$ is a **partial order**:
+
+  * Reflexive: $A \subseteq A$
+  * Transitive: $A \subseteq B, B \subseteq C \Rightarrow A \subseteq C$
+  * Antisymmetric: $A \subseteq B, B \subseteq A \Rightarrow A = B$
+
+---
+
+## 11. **Ordered Pairs and Cartesian Products**
+
+* $\langle x, y \rangle \in A \times B \iff x \in A \land y \in B$
+* Angle brackets used to denote ordered pairs
+* Contrast: sets are unordered, tuples are ordered
+
+---
+
+## 12. **Functions and Relations Preview**
+
+* **Functions** are a special case of **relations**
+
+  * Functions: one input maps to exactly one output
+  * Relations: general, may have multiple outputs per input
+
+### 12.1 Extensions:
+
+* 1-place predicate → set of objects
+* 2-place predicate → set of ordered pairs
+* n-place predicate → set of ordered n-tuples
+
+---
+
+## 13. **Exam and Assessment Info**
+
+* No midterm, just 8 problem sets
+* Problem Set 4 due after Flex week
+* Final exam is **open book**, pen-and-paper, centrally scheduled
+* Practice exams: past papers + supplementary exam
+* Practice under timed conditions (2 hours)
+* Exam includes: propositional logic, predicate logic, set theory, functions, relations, probability, graph theory
+* Use strategy: answer easy questions first, return to harder ones later
+
+---
+
+## 14. **Final Encouragement**
+
+* Hardest part of the course (predicate logic) is behind you
+* Everything builds on that foundation
+* Practice and engagement more important than memorisation
+* Stay calm and keep problem-solving
