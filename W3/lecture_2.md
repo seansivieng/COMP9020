@@ -213,3 +213,4 @@ A statement like ∀x ∈ D: P(x) → Q(x) is **vacuously true** if no `x ∈ D`
 - You're equipped to reason about abstract math and also to **verify real-world software**
 - Keep practicing! Upcoming topics will build on these techniques
 
+e
